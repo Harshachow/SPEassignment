@@ -15,7 +15,7 @@ pipeline {
    stage('Docker Build') {
     agent any
     steps {
-      sh 'docker build -t Harshachow/Calculator:latest .'
+      sh 'docker build -t Harshachow/calculator:latest .'
       }
     }
    }
