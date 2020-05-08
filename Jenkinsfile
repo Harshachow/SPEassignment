@@ -18,5 +18,16 @@ pipeline {
       sh 'docker build -t harshachow/calculator:latest .'
       }
     }
+    stage('PUBLISH to DockerHub')
+ 		{
+ 		    steps
+ 		    {
+ 	        	withDockerRegistry([ harsha9199: "DockerHub", url: "" ])
+ 	        	{
+ 	        		sh 'docker push harshachow/calculator:latest'
+
+ 	      		}
+ 		    }
+ 		}
    }
  }
