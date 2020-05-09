@@ -23,13 +23,13 @@ pipeline {
  		    steps
  		    {
  		    
- 		    sh 'docker logout'
- 		    
- 	        	withDockerRegistry([ credentialsId: "harsha9199", url: "" ])
- 	        	{
- 	        		sh 'docker push harshachow/calculator:latest'
-
- 	      		}
+ 		    withCredentials([usernamePassword( credentialsId: 'harsha9199', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
+        sh "docker login -u $USER -p $PASSWORD"
+        docker.withRegistry("harsha9199") {
+            // Push your image now
+            sh "docker push harshachow/calculator:latest"
+   	 	    }
+   		 }
  		    }
  		}
    }
