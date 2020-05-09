@@ -15,7 +15,7 @@ pipeline {
    stage('Docker Build') {
     agent any
     steps {
-      sh 'docker build -t harshachow/calculator:latest .'
+      sh 'docker build -t harsha9199/calculator:latest .'
       }
     }
     stage('PUBLISH to DockerHub')
@@ -24,7 +24,7 @@ pipeline {
  		    {    
  	        	withDockerRegistry([ credentialsId: "harsha9199", url: "" ])
  	        	{
- 	        		sh 'docker push harshachow/calculator:latest'
+ 	        		sh 'docker push harsha9199/calculator:latest'
 
  	      		}
  		    }
