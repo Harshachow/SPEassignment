@@ -24,12 +24,9 @@ pipeline {
  		    {
  		    
  		    withCredentials([usernamePassword( credentialsId: 'harsha9199', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
-        sh "docker login -u $USER -p $PASSWORD"
-        docker.withRegistry("harsha9199") {
-            // Push your image now
-            sh "docker push harshachow/calculator:latest"
-   	 	    }
-   		 }
+        		sh "docker login -u $USER -p $PASSWORD"
+         		   sh "docker push harshachow/calculator:latest"
+   		 	}
  		    }
  		}
    }
