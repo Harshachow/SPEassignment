@@ -22,6 +22,9 @@ pipeline {
  		{
  		    steps
  		    {
+ 		    
+ 		    sh 'docker logout'
+ 		    
  	        	withDockerRegistry([ credentialsId: "harsha9199", url: "" ])
  	        	{
  	        		sh 'docker push harshachow/calculator:latest'
