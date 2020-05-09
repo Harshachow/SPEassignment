@@ -21,12 +21,12 @@ pipeline {
     stage('PUBLISH to DockerHub')
  		{
  		    steps
- 		    {
- 		    
- 		    withCredentials([usernamePassword( credentialsId: 'harsha9199', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
-        		sh "docker login -u $USER -p $PASSWORD"
-         		   sh "docker push harshachow/calculator:latest"
-   		 	}
+ 		    {    
+ 	        	withDockerRegistry([ credentialsId: "harsha9199", url: "" ])
+ 	        	{
+ 	        		sh 'docker push harshachow/calculator:latest'
+
+ 	      		}
  		    }
  		}
    }
