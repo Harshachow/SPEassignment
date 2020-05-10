@@ -28,7 +28,7 @@ pipeline {
 
  	      		}
  		    }
- 
+        }
 stage('Deploy using Rundeck') {
       agent any
       steps {
@@ -42,7 +42,7 @@ stage('Deploy using Rundeck') {
           """,
           jobId: "98f648ae-dfb9-47d2-8df7-1a1ed2b93ad1"])
         }
-      }
+      
     }		}
    }
  }
