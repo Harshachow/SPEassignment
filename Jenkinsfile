@@ -28,6 +28,21 @@ pipeline {
 
  	      		}
  		    }
- 		}
+ 
+stage('Deploy using Rundeck') {
+      agent any
+      steps {
+        script {
+          step([$class: "RundeckNotifier",
+          rundeckInstance: "Rundeck",
+          shouldFailTheBuild: true,
+          shouldWaitForRundeckJob: true,
+          options: """
+            BUILD_VERSION=$BUILD_NUMBER
+          """,
+          jobId: "98f648ae-dfb9-47d2-8df7-1a1ed2b93ad1"])
+        }
+      }
+    }		}
    }
  }
