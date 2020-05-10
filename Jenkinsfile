@@ -22,7 +22,7 @@ pipeline {
  		{
  		    steps
  		    {    
- 	        	withDockerRegistry([ credentialsId: "harsha9199", url: "" ])
+ 	        	withDockerRegistry([ credentialsId: "dockerhub", url: "" ])
  	        	{
  	        		sh 'docker push harsha9199/calculator:latest'
 
